@@ -1,0 +1,66 @@
+{
+  "name": "@aerostack/sdk-vercel-ai",
+  "version": "0.10.0",
+  "description": "Use Aerostack workspace tools with the Vercel AI SDK",
+  "author": "Aerostack",
+  "license": "MIT",
+  "type": "module",
+  "tshy": {
+    "sourceDialects": [
+      "@aerostack/sdk-vercel-ai/source"
+    ],
+    "exports": {
+      ".": "./src/index.ts",
+      "./package.json": "./package.json"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "lint": "eslint --cache --max-warnings=0 src",
+    "build": "tshy",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@aerostack/core": "^0.10.0"
+  },
+  "peerDependencies": {
+    "ai": "^3.0.0 || ^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "ai": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "ai": "^4.3.0",
+    "tshy": "^2.0.0",
+    "typescript": "~5.8.3",
+    "vitest": "^3.2.1",
+    "zod": "^3.25.0"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "@aerostack/sdk-vercel-ai/source": "./src/index.ts",
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
